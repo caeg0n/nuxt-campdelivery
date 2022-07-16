@@ -1,0 +1,6 @@
+{
+  "appId": "com.caeg0n.nuxtcampinapolisdelivery",
+  "appName": "Campinapolis Delivery",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
