@@ -1,6 +1,7 @@
 export default {
   ssr: false,
   target: 'static',
+  extractCSS: true,
 
   head: {
     meta: [
@@ -47,6 +48,88 @@ export default {
         href: 'assets/css/style.css'
       },
     ],
+    script: [
+        {
+          hid: '00',
+          src: 'assets/js/jquery-3.6.0.min.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '01',
+          src: 'assets/js/bootstrap.bundle.min.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '02',
+          src: 'assets/js/lord-icon-2.1.0.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '03',
+          src: 'assets/js/feather.min.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '04',
+          src: 'assets/js/slick.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '05',
+          src: 'assets/js/slick.min.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '06',
+          src: 'assets/js/slick-custom.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '07',
+          src: 'assets/js/homescreen-popup.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '08',
+          src: 'assets/js/theme-setting.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+        {
+          hid: '09',
+          src: 'assets/js/script.js',
+          defer: true,
+          body: true,
+          async: false,
+
+        },
+      ],
 
   },
 
@@ -58,7 +141,7 @@ export default {
 
   buildModules: [],
 
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa' ],
 
   axios: {
     baseURL: 'http://172.29.138.250:3000',
@@ -74,7 +157,7 @@ export default {
     publicPath: '/nuxt/',
     hotMiddleware: {
       client: {
-        autoConnect: true,
+        autoConnect: false,
       },
     },
     extend(config, ctx) {},

@@ -1,10 +1,12 @@
 <template>
+  <Nuxt/>
 </template>
 <script>
 export default {
-  name: 'IndexPage',
-  created() {
-    this.$router.push('/home')
+  name: 'index',
+  mounted() {
+    // this.$router.push('/home')
+    window.location.href = "/home";
   },
 }
 </script>

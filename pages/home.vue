@@ -21,15 +21,15 @@
       <Category2 />
       <Offer2 />
       <LowestPrice />
-      <Essential/>
-      <Coupons/>
-      <LowestPrice2/>
-      <Question/>
+      <Essential />
+      <Coupons />
+      <LowestPrice2 />
+      <Question />
     </main>
     <!-- Main End -->
-    <Footer/>
-    <Language/>
-    <Pwa/>
+    <Footer />
+    <Language />
+    <Pwa />
   </div>
   <!-- Body End -->
 </template>
@@ -57,6 +57,9 @@ import Footer from '~/components/home/Footer'
 import Language from '~/components/home/Language'
 import Pwa from '~/components/home/Pwa'
 
+import { Device } from '@capacitor/device'
+import { Geolocation } from '@capacitor/geolocation';
+
 export default {
   components: {
     Language,
@@ -79,15 +82,33 @@ export default {
     Header2,
     Sidebar,
     Coupons,
-    Pwa
+    Pwa,
   },
   layout: 'home',
   name: 'home',
+  loading: false,
+  transition: 'fade',
 
   computed: {},
 
-  async created() {},
+  async created() {
+    const uid = await Device.getId()
+    const coordinates = await Geolocation.getCurrentPosition()
+    await this.$store.dispatch('session/setUUID', uid['uuid'])
+    await this.$store.dispatch('session/setCapacitorCoordinates', coordinates)
+  },
 
-  async mounted() {},
+  async mounted() {
+  },
+
+  methods: {
+    // async getCurrentPosition() {
+    //   const coordinates = await Geolocation.getCurrentPosition()
+    //   console.log('Current', coordinates)
+    // },
+    // watchPosition() {
+    //   const wait = Geolocation.watchPosition({}, (position, err) => {})
+    // },
+  },
 }
 </script>
